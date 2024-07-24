@@ -1,0 +1,50 @@
+.boxBar {
+    z-index: 1;
+    width: 100%;
+    border: 5px solid blueviolet;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bar {
+    height: 21px;
+    background: turquoise;
+    width: 0%;
+}
+
+h1{
+    padding-top: 50px;
+}
+/* form */
+
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(243, 232, 219);
+}
+
+h3{
+  padding: 0 20%;
+}
+form {
+  padding: 0 20%;
+  display: flex;
+  flex-direction: column;
+  input, textarea{
+      margin-top: 1%;
+      background-color: #FFFFFF; 
+  }
+}
+.boutton{
+  background-color: #78a77c;
+}
+p{
+  padding: 0 20%;
+} 
+#renderTextEdit{
+  padding: 50px
+}
+
+.monBoutton{
+  background-color: #78a77c;
+}
