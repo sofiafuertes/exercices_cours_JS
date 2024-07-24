@@ -260,16 +260,50 @@ zoneTxt.addEventListener("keyup", function() {
 localStorage.setItem('monSuperTexte',zoneTxt.value);
 //On affiche ce que tape l'utilisateur traduit en marked dans la div     
    // zoneRender.innerHTML =marked(zoneTxt.value);
-   zoneRender.innerHTML =marked(zoneTxt.value);
+    zoneRender.innerHTML =marked(zoneTxt.value);
 });
 
+ //* Exercice setTimeOut()
+// const isTime = setTimeout( thingsToHappend, 3000); 
+// function thingsToHappend(){
+//     const theBody = document.querySelector('body'); //selection du body
+//     theBody.style.backgroundImage = 'linear-Gradient(62deg, #FBAB7E 0%, #F7CE68 100%)';  // modif color background  
+// // selection et modif d'un titre
+//     const theTitle = document.querySelector('#mainTitle');
+//     theTitle.innerText = 'ALERT!!!!!!!!!'; 
+//     theTitle.style.color = 'RED';
+// //Ajout une image 
+//     const theImg = document.createElement('img');
+//     theImg.src = 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWk5ejduZ3lrOWlpeXl0anVpcmp6MWhnd3U0dndzOTBsaW02b2dhcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2Jek280UzMXLDfAQ/giphy.webp';
+//     theTitle.append(theImg);
+//     theTitle.style.fontSize = '6em' ;
+//     theTitle.style.textAlign ='center';
+//     theImg.style.width = '80%'; 
+// }
 
 
+//* autre solution pour exo setTimeOut()
+// const monTitre = document.querySelector("h2");
+// let myTimeout =  setTimeout(function() {
+//     monTitre.innerText = "Welcome 2 the DOM";
+//     monTitre.style.color = "white";
+//     monTitre.style.textAlign = 'center';
+//     monTitre.style.opacity = 0.5;
+//     document.body.style.backgroundColor = "#4158D0";
+//     document.body.style.backgroundImage = "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)";
+// }, 3000);
 
-
-
-
-
-
-
-
+//*Exercice setInterval()
+const theTitle = document.querySelector('#mainTitle');
+let timer= 10;  
+theTitle.addEventListener('click', () => {
+    myInterval = setInterval(() => {
+        if(timer >= 0){
+            theTitle.innerHTML = timer; 
+            timer --; 
+        } else{ 
+            theTitle.innerHTML = 'GOGOGO';
+            clearInterval(myInterval) ;
+        }        
+        }, 600); 
+    }); 

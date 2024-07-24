@@ -30,3 +30,5 @@ console.log(monPerso.length);
 //! .length sur une case précise du tableau 
 console.log(monPerso[2].length);
 let mesNombres = [100,200,300];
+
+
