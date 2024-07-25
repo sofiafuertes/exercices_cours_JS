@@ -37,7 +37,10 @@ class Employee {
         this.coutAnnuel = this.getCout()
     }
     getCout(){
-        return ((this.salaireMensuel * 12) * 90)/100; 
+        let salaireAnnuel = this.salaireMensuel * 12;
+        let charges = salaireAnnuel * (90 /100);
+        let salaireAnnuelTotal = salaireAnnuel + charges ; 
+        return salaireAnnuelTotal;
     }
 }
 let salaries =  
@@ -48,7 +51,6 @@ let salaries =
 salaries.forEach((unCout) => console.log(unCout.getCout()));
 
 
-
 class Pme{
     constructor(nom, equipe, ventes, coutFixes, achats){
         this.nom = nom;
@@ -57,13 +59,18 @@ class Pme{
         this.coutFixes = coutFixes;
         this.achats = achats; 
         this.coutInicial = this.coutFixes + this.achats; 
-        this.coutEquipe = ventes;
-        this.bilan= this.coutInicial - this.coutEquipe + this.ventes; 
-        console.log(equipe);
-        //console.log(coutEquipe);
+        this.coutEquipe = this.bilanCalcule();
+        this.bilan= this.ventes - (this.coutInicial + this.coutEquipe); 
+        //console.log(equipe);
+        //console.log(this.bilanCalcule());
+        //console.log(this.equipe[0].getCout(), this.equipe[1].getCout(), this.equipe[2].getCout());
     }
-    bilanCalculed(){
-        let coutSalaries = 0;
+    bilanCalcule(){
+        let salaireTotal = 0;
+        for(let i = 0 ; i < this.equipe.length ; i++){
+            salaireTotal += this.equipe[i].getCout();
+        }
+        return salaireTotal;
     }
     getBilan(){
         return `
