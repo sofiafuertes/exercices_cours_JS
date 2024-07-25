@@ -307,3 +307,22 @@ theTitle.addEventListener('click', () => {
         }        
         }, 600); 
     }); 
+
+
+    //* arreter le comportement de defaut de le navigateur
+    const googleLink = document.querySelector('#google')
+    console.log(googleLink);
+    
+    
+    const formulaire = document.querySelector('form');
+    console.log(formulaire);
+    
+    
+    formulaire.addEventListener('submit',function (event) {
+        event.preventDefault();
+        console.log(event);
+    })
+    
+    googleLink.addEventListener('click',function (clickEvent) {
+        clickEvent.preventDefault();
+    })
