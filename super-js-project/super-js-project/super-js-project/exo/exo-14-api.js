@@ -1,7 +1,7 @@
-//* Exo POKEMON fetch api avec async await 
-// const apiDiv = document.querySelector('.apiContact';
+// //* Exo POKEMON fetch api avec async await 
+// const apiDiv = document.querySelector('.apiContact');
 // console.log(apiDiv);
-// const contactApi = async () => {
+// const contactApiPokemon = async () => {
 //     const data = await fetch('https://pokeapi.co/api/v2/pokemon');
 //     console.log(data);
 //     const dataTransformed = await data.json();
@@ -15,7 +15,7 @@
 // apiDiv.style.backgroundColor= 'yellow'; 
 // apiDiv.style.paddingLeft = '50px';
 // apiDiv.style.color = 'red';
-// contactApi();
+// contactApiPokemon();
 
 
 //*1er exemple METEO fetch api avec async await 
@@ -76,30 +76,30 @@
 
 //* Exo Random User profile (img, nom, prenom, adresse postale, email, phone)
 
-const divApi = document.querySelector('.apiContact'); 
-const img = document.createElement('img');
-const nameComplete = document.createElement('p');
-const email = document.createElement('p');
-const phone = document.createElement('p');
-const adresse = document.createElement('p');
+// const divApi = document.querySelector('.apiContact'); 
+// const img = document.createElement('img');
+// const nameComplete = document.createElement('p');
+// const email = document.createElement('p');
+// const phone = document.createElement('p');
+// const adresse = document.createElement('p');
 
-console.log(divApi);
-const contactApi = () => {
-    fetch ('https://randomuser.me/api/')
-    .then (reponse => reponse.json())
-    .then (data => {
-                    console.log(data.results[0]);
-                    img.src = data.results[0].picture.large;
-                    nameComplete.innerText = `${data.results[0].name.first} ${data.results[0].name.last}`;
-                    email.innerText = data.results[0].email;
-                    phone.innerText = data.results[0].cell;
-                    adresse.innerText = `${data.results[0].location.city} - ${data.results[0].location.country} - ${data.results[0].location.postcode}`; 
+// console.log(divApi);
+// const contactApi = () => {
+//     fetch ('https://randomuser.me/api/')
+//     .then (reponse => reponse.json())
+//     .then (data => {
+//                     console.log(data.results[0]);
+//                     img.src = data.results[0].picture.large;
+//                     nameComplete.innerText = `${data.results[0].name.first} ${data.results[0].name.last}`;
+//                     email.innerText = data.results[0].email;
+//                     phone.innerText = data.results[0].cell;
+//                     adresse.innerText = `${data.results[0].location.city} - ${data.results[0].location.country} - ${data.results[0].location.postcode}`; 
     
-    divApi.append(img,nameComplete,email,phone,adresse)
-    })
-    .catch(error => console.warn("Erreur: " + error + error.stack))
-}
-contactApi();
+//     divApi.append(img,nameComplete,email,phone,adresse)
+//     })
+//     .catch(error => console.warn("Erreur: " + error + error.stack))
+// }
+// contactApi();
 
 //*version avec async et await 
 // const userDiv = document.getElementById('apiContact');
@@ -131,3 +131,28 @@ contactApi();
 //     userDiv.append(userImg,userName,userMail,userPhone,userAdress);
 // }
 // randomUserApi()
+
+const divApi = document.querySelector('.apiContact'); 
+const newParagraph = document.createElement('p');
+divApi.append(newParagraph);
+let temperatureMoyen = 0; 
+
+console.log(divApi);
+
+const contactMeteoMDP = () => {
+    fetch (`https://api.open-meteo.com/v1/forecast?latitude=-37.98&longitude=-57.59&hourly=temperature_2m`)
+    .then (reponse => reponse.json())
+    .then (data => {
+            console.log(data);
+            console.log(data.hourly.temperature_2m);
+            data.hourly.temperature_2m.forEach(temperature => { 
+                temperatureMoyen += temperature
+            });
+            newParagraph.innerText = (temperatureMoyen / data.hourly.temperature_2m.length).toFixed(2);
+        })
+    .catch(error => {
+        console.log(error, error.stack)
+    })
+}
+
+contactMeteoMDP();

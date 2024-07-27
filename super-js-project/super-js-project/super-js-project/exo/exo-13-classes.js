@@ -66,12 +66,21 @@ class Pme{
         //console.log(this.equipe[0].getCout(), this.equipe[1].getCout(), this.equipe[2].getCout());
     }
     bilanCalcule(){
-        let salaireTotal = 0;
-        for(let i = 0 ; i < this.equipe.length ; i++){
-            salaireTotal += this.equipe[i].getCout();
-        }
+    //* avec boucle FOR
+    //     let salaireTotal = 0;
+    //     for(let i = 0 ; i < this.equipe.length ; i++){
+    //         salaireTotal += this.equipe[i].getCout();
+    //     }
+    //     return salaireTotal;
+    // }
+    
+    //* avec forEach
+    let salaireTotal = 0;
+    this.equipe.forEach((leEquipe) => 
+                        salaireTotal += leEquipe.getCout())
         return salaireTotal;
     }
+
     getBilan(){
         return `
         ${this.nom} : Cout Initial : ${this.coutInicial}
