@@ -49,7 +49,7 @@ let salaries =
     new Employee ("Dois", "Sylvia", 50, 4000),]
 
 salaries.forEach((unCout) => console.log(unCout.getCout()));
-
+console.log(salaries)
 
 class Pme{
     constructor(nom, equipe, ventes, coutFixes, achats){
@@ -100,4 +100,5 @@ new Employee ("Dois", "Sylvia", 50, 4000),],
         300000,
         20000,
         50000);
-    console.log(pme.getBilan());
+
+console.log(pme.getBilan());
